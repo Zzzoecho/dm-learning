@@ -1,0 +1,12 @@
+node_modules
+docs/.vitepress/dist
+coverage
+.idea
+.DS_Store
+packages/*/dist
+packages/*/types
+packages/*/.turbo
+**/*/.pnpm-debug.log
+
+.history
+.vscode
