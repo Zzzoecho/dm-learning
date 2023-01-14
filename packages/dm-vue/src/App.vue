@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import Header from './components/Header.vue';
+import BasicHeader from './components/Header/BasicHeader.vue'
 </script>
 
 <template>
-  <Header/>
+  <BasicHeader />
 
   <main class="rd-main">
     <RouterView />
   </main>
 </template>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .rd-main {
   margin-top: 72px;
 }
