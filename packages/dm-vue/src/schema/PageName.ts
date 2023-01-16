@@ -3,4 +3,5 @@ export enum PageName {
   Explore = 'explore',
   ExploreDetail = 'exploreDetail',
   User = 'userDetail',
+  About = 'about',
 }

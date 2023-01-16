@@ -1,16 +1,20 @@
 <template>
   <header class="rd-header">
-    <img src="../../assets/images/logo.png" alt="logo" class="logo" />
+    <router-link :to="homeLink">
+      <img src="../../assets/images/logo.png" alt="logo" class="logo" />
+    </router-link>
 
-    <nav>
-      <ul class="rd-header__nav">
-        <li class="rd-header__nav-item">首页</li>
-        <li class="rd-header__nav-item">发现</li>
-        <li class="rd-header__nav-item">关于我们</li>
-      </ul>
-    </nav>
+    <BasicNav />
   </header>
 </template>
+
+<script setup lang="ts">
+import BasicNav from '@/components/Header/BasicNav.vue'
+import { PageName } from '@/schema/PageName'
+const homeLink = {
+  name: PageName.Home,
+}
+</script>
 
 <style lang="scss" scoped>
 .rd-header {
@@ -30,15 +34,6 @@
 
   .logo {
     width: 60px;
-  }
-
-  &__nav {
-    display: flex;
-
-    &-item {
-      padding: 0 10px;
-      cursor: pointer;
-    }
   }
 }
 </style>
