@@ -1,0 +1,12 @@
+@mixin multi-line-omit($line: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+}
+
+@mixin bg-svg($name) {
+  background-image: url(./images/#{$name}.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
