@@ -2,6 +2,7 @@
  * @param {number[][]} logs
  * @param {number} k
  * @return {number[]}
+ * @url https://leetcode.cn/problems/finding-the-users-active-minutes/
  */
 const findingUsersActiveMinutes = function(logs, k) {
   const idMap = logs.reduce((pre,cur) => {
