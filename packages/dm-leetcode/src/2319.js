@@ -1,6 +1,7 @@
 /**
  * @param {number[][]} grid
  * @return {boolean}
+ * @url https://leetcode.cn/problems/check-if-matrix-is-x-matrix/
  */
 const checkXMatrix = function(grid) {
   let isXMatrix = true
