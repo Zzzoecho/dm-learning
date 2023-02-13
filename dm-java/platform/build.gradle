@@ -1,0 +1,46 @@
+plugins {
+    id("java-platform")
+    id("maven-publish")
+}
+
+
+ext {
+    springBoosVersion = "3.0.2"
+}
+
+dependencies {
+    api(platform("org.springframework.boot:spring-boot-dependencies:${springBoosVersion}")) {
+    }
+}
+
+javaPlatform {
+    allowDependencies()
+}
+
+
+group = "com.zoe"
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionResult()
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            from components.javaPlatform
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = "$mavenUsername"
+                password = "$mavenPassword"
+            }
+            url = version.endsWith('SNAPSHOT') ? "$snapshotsRepoUrl" : "$releasesRepoUrl"
+        }
+    }
+}
+
