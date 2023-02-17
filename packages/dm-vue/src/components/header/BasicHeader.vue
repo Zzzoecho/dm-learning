@@ -4,15 +4,20 @@
       <img src="../../assets/images/logo.png" alt="logo" class="logo" />
     </router-link>
 
-    <BasicNav />
+    <div class="rd-header__group">
+      <BasicNav />
+      <UserAvatar />
+    </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import BasicNav from '@/components/Header/BasicNav.vue'
+import BasicNav from '@/components/header/BasicNav.vue'
 import { PageName } from '@/schema/PageName'
+import UserAvatar from '@/components/header/UserAvatar.vue'
+
 const homeLink = {
-  name: PageName.Home,
+  name: PageName.Home
 }
 </script>
 
@@ -34,6 +39,10 @@ const homeLink = {
 
   .logo {
     width: 60px;
+  }
+  &__group {
+    display: flex;
+    align-items: center;
   }
 }
 </style>

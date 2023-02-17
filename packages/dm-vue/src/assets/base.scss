@@ -1,3 +1,13 @@
+$primary: #ff2442;
+$text-primary: #333333;
+$text-light: #666666;
+$white: #ffffff;
+
+$zindex: (
+  modal: 9000,
+  header: 8000
+);
+
 @mixin multi-line-omit($line: 2) {
     display: -webkit-box;
     -webkit-box-orient: vertical;

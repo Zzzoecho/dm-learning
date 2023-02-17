@@ -7,42 +7,36 @@
 //     return fn.apply(this, newArgs);
 //   };
 // };
-function sub_curry(fn){
-  return function(){
-    return fn()
-  }
+
+// 第二版
+function sub_curry(fn) {
+  var args = [].slice.call(arguments, 1);
+  return function() {
+    return fn.apply(this, args.concat([].slice.call(arguments)));
+  };
 }
 
-function curry(fn, length){
-  length = length || 4;
-  return function(){
-    if (length > 1) {
-      return curry(sub_curry(fn), --length)
+function curry(fn, length) {
+  // Function.length -- 指明函数的形参个数
+  // arguments.length -- 函数被调用时实际传参的个数
+  length = length || fn.length;
+
+  var slice = Array.prototype.slice;
+
+  return function() {
+    if (arguments.length < length) {
+      var combined = [fn].concat(slice.call(arguments));
+      return curry(sub_curry.apply(this, combined), length - arguments.length);
+    } else {
+      return fn.apply(this, arguments);
     }
-    else {
-      return fn()
-    }
-  }
+  };
 }
 
-var fn0 = function(){
-  console.log(1)
+var fn0 = function(a, b, c, d) {
+  return [a, b, c, d];
 }
 
-var fn1 = curry(fn0)
+var fn1 = curry(fn0);
 
-fn1()
-// fn1()()()() // 1
-
-function add(a, b) {
-  return a + b;
-}
-
-// const addCurry = curry(add, 1, 2);
-// addCurry() // 3
-//或者
-// var addCurry = curry(add, 1);
-// addCurry(2) // 3
-// //或者
-// var addCurry = curry(add);
-// addCurry(1, 2) // 3
+fn1("a", "b")("c")("d")
