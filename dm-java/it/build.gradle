@@ -1,0 +1,9 @@
+dependencies {
+    // 1. 应用自己项目
+    implementation(project(":zoe-app"))
+
+
+
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.assertj:assertj-core")
+}

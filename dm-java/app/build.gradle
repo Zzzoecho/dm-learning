@@ -1,0 +1,11 @@
+dependencies {
+    //    1. web
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+    //    2. logging
+    implementation("org.springframework.boot:spring-boot-starter-logging")
+
+    // 3. json
+    api("com.fasterxml.jackson.module:jackson-module-kotlin:")
+    implementation("org.springframework.boot:spring-boot-starter-json")
+}

@@ -10,7 +10,7 @@
 
 rootProject.name = 'dm-java'
 
-def subs = ["platform", "it"]
+def subs = ["platform", "it", "app"]
 
 for (pro in subs) {
     def projectName = "zoe-${pro}"
