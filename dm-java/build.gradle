@@ -8,6 +8,8 @@
 plugins {
     //    1. lombok 插件 -> https://projectlombok.org/
     id "io.freefair.lombok" version "6.5.1" apply false
+    id "org.jetbrains.kotlin.jvm" version "$kotlinVersion" apply false
+    id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion" apply false
 }
 
 ext {
@@ -22,12 +24,19 @@ tasks.register("showProjects") {
 configure(javaProjects) {
     pro ->
         {
-//            apply plugin: "maven-publish"
             apply plugin: "java-library"
-            apply plugin: "io.freefair.lombok"
+//            apply plugin: "io.freefair.lombok"
 
+            apply plugin: 'org.jetbrains.kotlin.jvm'
+            apply plugin: 'org.jetbrains.kotlin.plugin.serialization'
 
             group = "com.zoe"
+
+            kotlin {
+                jvmToolchain {
+                    languageVersion.set(JavaLanguageVersion.of(17))
+                }
+            }
 
 
             dependencies {
